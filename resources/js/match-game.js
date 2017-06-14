@@ -10,8 +10,25 @@ var MatchGame = {};
  */
 
 MatchGame.generateCardValues = function () {
+  var sequentialOrdered = [];
+  for (var i = 1; i <= 8; i++) {
+    sequentialOrdered.push(i);
+    var randomOrdered = [];
+    // console.log('sequentialOrdered = ' + sequentialOrdered);
+  }
+  while (sequentialOrdered.length > 0) {
+    var randomIndex = Math.floor(Math.random() * sequentialOrdered.length);
+    randomOrdered.push(sequentialOrdered[randomIndex]);
+    sequentialOrdered.splice(randomIndex, 1);
+    // console.log('randomOrdered = ' + randomOrdered);
+  }
 
+  // console.log('sequentialOrdered final= ' + sequentialOrdered);
+  // console.log('randomOrdered final= ' + randomOrdered);
+  return randomOrdered;
 };
+
+// MatchGame.generateCardValues();
 
 /*
   Converts card values to jQuery card objects and adds them to the supplied game
