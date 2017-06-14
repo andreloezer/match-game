@@ -1,0 +1,54 @@
+/* HTML */
+
+html {
+  background-color: rgb(255, 242, 242);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+}
+
+body {
+  background-color: inherit;
+}
+
+main {
+  background-color: inherit;
+}
+
+h1 {
+  color: rgb(32, 64, 86);
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+h2 {
+  color: rgb(32, 64, 86);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+p {
+  color: rgb(74, 74, 74);
+}
+
+main > div {
+  margin-top: 5.25rem;
+}
+
+/* Classes */
+
+.card {
+  align-items: center;
+  background-color: rgb(32, 64, 86);
+  border: 4px solid #ffffff;
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  font-size: 7rem;
+  font-weight: 900;
+  height: 12.5rem;
+  justify-content: center;
+}
+
+.card:hover {
+  cursor: pointer;
+}
