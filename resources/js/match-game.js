@@ -4,6 +4,10 @@ var MatchGame = {};
   Sets up a new game after HTML document has loaded.
   Renders a 4x4 board of cards.
 */
+$(document).ready (function() {
+  var $game = $('#game');
+  MatchGame.renderCards(MatchGame.generateCardValues(), $game);
+});
 
 /*
   Generates and returns an array of matching card values.
@@ -14,17 +18,12 @@ MatchGame.generateCardValues = function () {
   for (var i = 1; i <= 8; i++) {
     sequentialOrdered.push(i);
     var randomOrdered = [];
-    // console.log('sequentialOrdered = ' + sequentialOrdered);
   }
   while (sequentialOrdered.length > 0) {
     var randomIndex = Math.floor(Math.random() * sequentialOrdered.length);
     randomOrdered.push(sequentialOrdered[randomIndex]);
     sequentialOrdered.splice(randomIndex, 1);
-    // console.log('randomOrdered = ' + randomOrdered);
   }
-
-  // console.log('sequentialOrdered final= ' + sequentialOrdered);
-  // console.log('randomOrdered final= ' + randomOrdered);
   return randomOrdered;
 };
 
@@ -36,6 +35,25 @@ MatchGame.generateCardValues = function () {
 */
 
 MatchGame.renderCards = function(cardValues, $game) {
+
+  var colors = ['hsl(25, 85%, 65%)',
+                'hsl(55, 85%, 65%)',
+                'hsl(90, 85%, 65%)',
+                'hsl(160, 85%, 65%)',
+                'hsl(220, 85%, 65%)',
+                'hsl(265, 85%, 65%)',
+                'hsl(310, 85%, 65%)',
+                'hsl(360, 85%, 65%)'];
+  $game.empty();
+
+  for (var i = 0; i < 16; i++) {
+    var $newCard = $('<div class="card col-xs-3"></div>');
+    $newCard.data('value', cardValues);
+    $newCard.data('flipped', false);
+    $newCard.data('color', colors[i - 1]);
+    $newCard.data('cardValue', cardValues[i]);
+    $game.append($newCard);
+  }
 
 };
 
